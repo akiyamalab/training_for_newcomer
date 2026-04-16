@@ -39,6 +39,18 @@ def gen_rev_comp_seq(fastafile: str) -> str:
 def calc_gc_content(fastafile: str, window: int=1000, step: int=300) -> Union[npt.NDArray[np.float_], List[float]]:
     # 課題 1-3
     # 値を出力するところまで。matplotlibを使う部分は別途実装してください。
+    seq = ""
+    with open(fastafile, 'r') as f:
+        for line in f:
+            if line.startswith('>'):
+                continue
+            seq += line.strip().upper()
+    
+    results = []
+    for i in range(0, len(seq) - window + 1, step):
+        sub_seq = seq[i, i+window]
+        counts = sub_seq.count('G') + sub_seq.count('C')
+        results.append((counts/window)*100)
     return []
 
 def search_motif(fastafile: str, motif: str) -> List[str]:
