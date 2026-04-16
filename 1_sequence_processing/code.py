@@ -19,7 +19,22 @@ def base_count(fastafile: str) -> List[int]:
 
 def gen_rev_comp_seq(fastafile: str) -> str:
     # 課題 1-2
-    return ""
+    comp = {'A':'T','T':'A','G':'C','C':'G'}
+    seq = ""
+
+    with open(fastafile, 'r') as f:
+        for line in f:
+            if line.startswith('>'):
+                continue
+            seq += line.strip().upper()
+
+    reverse = ""
+    for base in reversed(seq):
+        if base in comp:
+            reverse += comp[base]
+        else:
+            reverse += base
+    return reverse
 
 def calc_gc_content(fastafile: str, window: int=1000, step: int=300) -> Union[npt.NDArray[np.float_], List[float]]:
     # 課題 1-3
