@@ -51,14 +51,32 @@ def calc_gc_content(fastafile: str, window: int=1000, step: int=300) -> Union[np
         sub_seq = seq[i, i+window]
         counts = sub_seq.count('G') + sub_seq.count('C')
         results.append((counts/window)*100)
-    return []
+    return results
 
 def search_motif(fastafile: str, motif: str) -> List[str]:
     # 課題 1-4
-    return []
+    seq = ""
+
+    with open(fastafile, 'r') as f:
+        for line in f:
+            if line.startswith('>'):
+                continue
+            seq += line.strip().upper()
+
+    results: List[str] = [] 
+    for i in range(0, len(seq)-len(motif) + 1):
+        if seq[i:i+len(motif)-1] == motif:
+            results.append(('F', i))
+
+    revseq = gen_rev_comp_seq(fastafile)
+    for i in range(0, len(revseq)-len(motif) + 1):
+        if revseq[i:i+len(motif)-1] == motif:
+            results.append(('R', len(revseq)-i+1))
+    return results
 
 def translate(fastafile: str) -> List[str]:
     # 課題 1-5
+    
     return []
 
 if __name__ == "__main__":
