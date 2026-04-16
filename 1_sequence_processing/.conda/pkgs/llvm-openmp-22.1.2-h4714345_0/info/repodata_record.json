@@ -1,0 +1,24 @@
+{
+  "name": "llvm-openmp",
+  "version": "22.1.2",
+  "build": "h4714345_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/osx-arm64",
+  "subdir": "osx-arm64",
+  "fn": "llvm-openmp-22.1.2-h4714345_0.conda",
+  "md5": "a5e46ca3bbb1eecb47198dbf51a1ed25",
+  "url": "https://repo.anaconda.com/pkgs/main/osx-arm64/llvm-openmp-22.1.2-h4714345_0.conda",
+  "sha256": "11a38f2ed08813efc6647a3f376b861cf2b0a1e06d671e427cf80404497119af",
+  "arch": "arm64",
+  "platform": "darwin",
+  "depends": [
+    "__osx >=12.1"
+  ],
+  "constrains": [
+    "openmp 22.1.2|22.1.2.*"
+  ],
+  "license": "Apache-2.0 WITH LLVM-exception",
+  "license_family": "Apache",
+  "timestamp": 1775670206000,
+  "size": 301600
+}

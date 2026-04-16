@@ -4,7 +4,18 @@ import numpy as np
 
 def base_count(fastafile: str) -> List[int]:
     # 課題 1-1
-    return [0, 0, 0, 0] # A, T, G, C
+
+    counts = {'A':0, 'T':0, 'G':0, 'C':0}
+    with open(fastafile, 'r') as f:
+        for line in f:
+            if line.startswith('>'):
+                continue
+            line = line.strip().upper()
+
+            for base in line:
+                if base in counts:
+                    counts[base] +=1
+    return [counts['A'], counts['C'], counts['G'], counts['T']] # A, T, G, C
 
 def gen_rev_comp_seq(fastafile: str) -> str:
     # 課題 1-2

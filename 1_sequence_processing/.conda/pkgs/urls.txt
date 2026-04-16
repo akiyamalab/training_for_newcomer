@@ -1,0 +1,7 @@
+https://repo.anaconda.com/pkgs/main/osx-arm64/libgfortran-15.2.0-h09d7db9_1.conda
+https://repo.anaconda.com/pkgs/main/osx-arm64/llvm-openmp-22.1.2-h4714345_0.conda
+https://repo.anaconda.com/pkgs/main/osx-arm64/libgfortran5-15.2.0-hb654fa1_1.conda
+https://repo.anaconda.com/pkgs/main/osx-arm64/numpy-2.4.4-py311h4bb6f22_1.conda
+https://repo.anaconda.com/pkgs/main/osx-arm64/blas-1.0-openblas.conda
+https://repo.anaconda.com/pkgs/main/osx-arm64/libopenblas-0.3.31-h7813bb4_1.conda
+https://repo.anaconda.com/pkgs/main/osx-arm64/numpy-base-2.4.4-py311h23175f9_1.conda

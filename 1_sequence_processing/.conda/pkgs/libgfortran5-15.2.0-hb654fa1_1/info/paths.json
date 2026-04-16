@@ -1,0 +1,47 @@
+{
+  "paths": [
+    {
+      "_path": "lib/libgcc_s.1.1.dylib",
+      "path_type": "hardlink",
+      "sha256": "af10c4f50e103b3175358185d17a0a69066b4d9c5c670fa2cf7d777bc9c4c88d",
+      "size_in_bytes": 198384
+    },
+    {
+      "_path": "lib/libgfortran.5.dylib",
+      "path_type": "hardlink",
+      "sha256": "a32f2b1e8e72396d4ac6776a91a51669297846c5a032fbbce7ee67c94ce4ac8d",
+      "size_in_bytes": 2062896
+    },
+    {
+      "_path": "lib/libgfortran.dylib",
+      "path_type": "softlink",
+      "sha256": "a32f2b1e8e72396d4ac6776a91a51669297846c5a032fbbce7ee67c94ce4ac8d",
+      "size_in_bytes": 2062896
+    },
+    {
+      "_path": "lib/libgomp.1.dylib",
+      "path_type": "softlink",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_in_bytes": 0
+    },
+    {
+      "_path": "lib/libgomp.dylib",
+      "path_type": "softlink",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_in_bytes": 0
+    },
+    {
+      "_path": "lib/libquadmath.0.dylib",
+      "path_type": "hardlink",
+      "sha256": "6935d3825d0adba8af568320f68b8ded95106c93640ad58faaebbdf8a55c5edc",
+      "size_in_bytes": 305360
+    },
+    {
+      "_path": "lib/libquadmath.dylib",
+      "path_type": "softlink",
+      "sha256": "6935d3825d0adba8af568320f68b8ded95106c93640ad58faaebbdf8a55c5edc",
+      "size_in_bytes": 305360
+    }
+  ],
+  "paths_version": 1
+}

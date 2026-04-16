@@ -1,0 +1,109 @@
+# This file created by conda-build 26.1.0
+# ------------------------------------------------
+
+package:
+  name: llvm-openmp
+  version: 22.1.2
+source:
+  url: https://github.com/llvm/llvm-project/archive/refs/tags/llvmorg-22.1.2.tar.gz
+  sha256: a252efd7a4a268d2cc5145b17adcaa82757fdee1d06d748b4c24137807710ecb
+  folder: llvm-project
+  patches:
+    - patches/0001-link-libomp-to-compiler-rt-on-osx-arm.patch
+build:
+  ignore_run_exports_from:
+    - clang_bootstrap_osx-arm64 22.1.2.*
+    - gfortran_osx-arm64 14.3.0.*
+    - llvmdev
+  run_exports:
+    strong:
+      - llvm-openmp >=22.1.2
+  number: 0
+  string: h4714345_0
+requirements:
+  build:
+    - bzip2 1.0.8 h80987f9_6
+    - ca-certificates 2026.3.19 hca03da5_0
+    - clang_bootstrap_osx-arm64 22.1.2 h417ed56_0
+    - libcxx 22.1.2 hf894667_0
+    - libexpat 2.7.5 h50f4ffc_0
+    - libffi 3.4.4 hca03da5_1
+    - libmpdec 4.0.0 h80987f9_0
+    - libzlib 1.3.1 h5f15de7_0
+    - lz4-c 1.9.4 h313beb8_1
+    - macosx_deployment_target_osx-arm64 12.1 h3601aa6_2
+    - ncurses 6.5 hee39554_0
+    - ninja 1.13.1 hca03da5_0
+    - ninja-base 1.13.1 h0028bb4_0
+    - openssl 3.5.5 ha0b305a_0
+    - python 3.14.3 h748c21b_101_cp314
+    - python_abi 3.14 2_cp314
+    - readline 8.3 h0b18652_0
+    - sqlite 3.51.2 h67002bf_0
+    - tk 8.6.15 hcd8a7d5_0
+    - tzdata 2026a he532380_0
+    - xz 5.8.2 h8bbcb1d_0
+    - zlib 1.3.1 h5f15de7_0
+    - zstd 1.5.7 h817c040_0
+  run_constrained:
+    - openmp 22.1.2|22.1.2.*
+  host:
+    - __osx >=12.1
+  run:
+    - __osx >=12.1
+test:
+  requires:
+    - clang_bootstrap_osx-arm64 22.1.2.*
+    - clangxx <=22.1.2
+  files:
+    - omp_hello.c
+  commands:
+    - test -f $PREFIX/include/omp.h
+    - test -f $PREFIX/lib/clang/22/include/omp.h
+    - test -f $PREFIX/lib/libomp.dylib
+    - $PREFIX/bin/clang -v -fopenmp -I$PREFIX/include -L$PREFIX/lib -Wl,-rpath,$PREFIX/lib
+      $LNK_XTRA omp_hello.c -o omp_hello
+    - ./omp_hello
+about:
+  home: https://openmp.llvm.org/
+  license: Apache-2.0 WITH LLVM-exception
+  license_file: openmp/LICENSE.TXT
+  dev_url: https://github.com/llvm/llvm-project/
+  doc_url: https://llvm.org/docs/
+  license_family: Apache
+  summary: The OpenMP API supports multi-platform shared-memory parallel programming
+    in C/C++ and Fortran.
+  description: 'LLVM''s OpenMP runtime library (libomp) provides a high-performance
+    implementation
+
+    of the OpenMP API specification for shared-memory parallel programming. This
+
+    package delivers the runtime library and headers needed to execute OpenMP programs
+
+    compiled with clang or other LLVM-based compilers. It supports all major OpenMP
+
+    features including parallel regions, work-sharing constructs, synchronization
+
+    primitives, and SIMD directives. The implementation is optimized for modern
+
+    multi-core processors and provides excellent scalability across different
+
+    platforms including Linux, macOS, and Windows.
+
+    '
+extra:
+  recipe-maintainers:
+    - beckermr
+    - h-vetinari
+    - inducer
+    - isuruf
+    - jakirkham
+    - katietz
+    - yesimon
+  final: true
+  copy_test_source_files: true
+  remote_url: https://github.com/AnacondaRecipes/openmp-feedstock
+  sha: 3fc01ec0cb36f7bdec8dd1e465c972475d5ddf5f
+  task_id: F0sTmN5KSraapp93Dl5EBw
+  task_run_id: '0'
+  pbp_graph_uuid: 688330f3-b1ed-4784-933b-ac463b092176

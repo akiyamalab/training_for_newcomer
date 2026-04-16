@@ -1,0 +1,20 @@
+{
+  "name": "blas",
+  "version": "1.0",
+  "build": "openblas",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/osx-arm64",
+  "subdir": "osx-arm64",
+  "fn": "blas-1.0-openblas.conda",
+  "md5": "082557147829a904fa986cb86dd1e45a",
+  "url": "https://repo.anaconda.com/pkgs/main/osx-arm64/blas-1.0-openblas.conda",
+  "sha256": "4fd46cbbcfd8eea36f4b5eee916c0b973d3e9cf19931b1e046930fa087798752",
+  "arch": "arm64",
+  "platform": "darwin",
+  "depends": [],
+  "constrains": [],
+  "track_features": "nomkl",
+  "license": "",
+  "timestamp": 1628529248000,
+  "size": 9998
+}

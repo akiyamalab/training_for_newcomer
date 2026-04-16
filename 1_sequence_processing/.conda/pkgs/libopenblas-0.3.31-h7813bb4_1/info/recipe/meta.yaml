@@ -1,0 +1,99 @@
+# This file created by conda-build 26.1.0
+# ------------------------------------------------
+
+package:
+  name: libopenblas
+  version: 0.3.31
+source:
+  url: https://github.com/OpenMathLib/OpenBLAS/archive/v0.3.31.tar.gz
+  sha256: 6dd2a63ac9d32643b7cc636eab57bf4e57d0ed1fff926dfbc5d3d97f2d2be3a6
+  patches:
+    - patches/0001-remove-ld_classic-flag.patch
+    - patches/0003-trmv.patch
+    - patches/0004-disable-sme-on-apple-silicon.patch
+build:
+  number: '1'
+  script_env:
+    - USE_OPENMP=0
+  noarch: false
+  noarch_python: false
+  python_version_independent: false
+  string: h7813bb4_1
+requirements:
+  build:
+    - cctools 986 h0dbccd1_3
+    - clang 17.0.6 hdefe189_6
+    - clang-17 17.0.6 default_h000693a_6
+    - clang_impl_osx-arm64 17.0.6 hcb56dc5_4
+    - clang_osx-arm64 17.0.6 hcb56dc5_4
+    - clangxx 17.0.6 default_h000693a_6
+    - compiler-rt 17.0.6 h6a6761b_1
+    - compiler-rt_osx-arm64 17.0.6 h6a6761b_1
+    - gfortran_impl_osx-arm64 14.3.0 h54d37b1_1
+    - gfortran_osx-arm64 14.3.0 h613a868_0
+    - gmp 6.3.0 h313beb8_0
+    - icu 73.1 h313beb8_0
+    - isl 0.22.1 hc377ac9_3
+    - ld64 711 h3c27c41_3
+    - libclang-cpp17 17.0.6 default_h000693a_6
+    - libcxx 17.0.6 he5c5206_4
+    - libcxx-devel 17.0.6 hbf97328_4
+    - libffi 3.4.4 hca03da5_1
+    - libgfortran 15.2.0 h09d7db9_1
+    - libgfortran-devel_osx-arm64 14.3.0 h6230920_1
+    - libgfortran5 15.2.0 hb654fa1_1
+    - libiconv 1.18 h92f5915_0
+    - libllvm17 17.0.6 h07a7f36_6
+    - libxml2 2.13.9 h528a072_0
+    - llvm 17.0.6 h0bf6939_6
+    - llvm-openmp 17.0.6 h2f17746_0
+    - llvm-tools 17.0.6 hcb83754_6
+    - lz4-c 1.9.4 h313beb8_1
+    - macosx_deployment_target_osx-arm64 12.1 h3601aa6_2
+    - mpc 1.3.1 h80987f9_0
+    - mpfr 4.2.1 h80987f9_0
+    - tapi 1100.0.11 h8754e6a_1
+    - xz 5.8.2 h8bbcb1d_0
+    - zlib 1.2.13 ha1e9f54_2
+    - zstd 1.5.6 hfb09047_0
+  host:
+    - libgfortran 15.2.0 h09d7db9_1
+    - libgfortran5 15.2.0 hb654fa1_1
+    - llvm-openmp 22.1.2 h4714345_0
+  run:
+    - __osx >=12.1
+    - libgfortran
+    - libgfortran5 >=14.3.0
+test:
+  requires:
+    - python
+  commands:
+    - test -f ${PREFIX}/lib/libopenblasp-r0.3.31.dylib
+    - python -c "import ctypes; ctypes.cdll['${PREFIX}/lib/libopenblasp-r0.3.31.dylib']"
+about:
+  home: https://www.openblas.net
+  license: BSD-3-Clause
+  license_file: LICENSE
+  license_family: BSD
+  summary: An Optimized BLAS library
+  description: OpenBLAS is based on GotoBLAS2 1.13 BSD version.
+  doc_url: https://www.openblas.net
+  doc_source_url: https://github.com/xianyi/OpenBLAS/blob/develop/README.md
+  dev_url: https://github.com/xianyi/OpenBLAS
+extra:
+  recipe-maintainers:
+    - beckermr
+    - chenghlee
+    - gillins
+    - groutr
+    - isuruf
+    - jakirkham
+    - jschueller
+    - msarahan
+  final: true
+  copy_test_source_files: true
+  remote_url: https://github.com/AnacondaRecipes/openblas-feedstock
+  sha: 0a64ec6bf572bdb7a8e54fa61c70482b499d3117
+  task_id: V3SII5iBRHCRmkHCxCmfRw
+  task_run_id: '0'
+  pbp_graph_uuid: 0b0aeeee-f8a1-4472-97ba-d6dd3c0cf619

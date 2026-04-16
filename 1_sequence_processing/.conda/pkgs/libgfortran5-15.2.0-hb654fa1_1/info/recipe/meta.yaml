@@ -1,0 +1,50 @@
+# This file created by conda-build 25.1.2
+# ------------------------------------------------
+
+package:
+  name: libgfortran5
+  version: 15.2.0
+source:
+  patches:
+    - patches/gcc-15.2.0.diff
+  sha256: 7294d65cc1a0558cb815af0ca8c7763d86f7a31199794ede3f630c0d1b0a5723
+  url:
+    - https://ftp.gnu.org/gnu/gcc/gcc-15.2.0/gcc-15.2.0.tar.gz
+    - https://mirrors.ocf.berkeley.edu/gnu/gcc/gcc-15.2.0/gcc-15.2.0.tar.gz
+build:
+  number: 1
+  run_exports:
+    - libgfortran5 >=15.2.0
+  string: hb654fa1_1
+requirements:
+  build: []
+  run:
+    - llvm-openmp >=8.0.0
+  run_constrained:
+    - libgfortran 15.2.0
+test:
+  commands:
+    - test -f "${PREFIX}/lib/libgfortran.dylib"
+    - test -f "${PREFIX}/lib/libgfortran.5.dylib"
+    - test -f "${PREFIX}/lib/libgomp.dylib"
+    - test -f "${PREFIX}/lib/libgomp.1.dylib"
+    - test -f "${PREFIX}/lib/libquadmath.dylib"
+    - test -f "${PREFIX}/lib/libquadmath.0.dylib"
+    - test -f "${PREFIX}/lib/libgcc_s.1.1.dylib"
+about:
+  description: Fortran compiler and libraries from the GNU Compiler Collection
+  dev_url: https://gcc.gnu.org/git/gcc.git
+  doc_url: https://gcc.gnu.org/onlinedocs/
+  home: https://gcc.gnu.org/
+  license: GPL-3.0-only WITH GCC-exception-3.1
+  license_family: GPL
+  license_file: COPYING3
+  summary: Fortran compiler and libraries from the GNU Compiler Collection
+extra:
+  copy_test_source_files: true
+  feedstock-name: gfortran_impl_osx-64
+  final: true
+  recipe-maintainers:
+    - beckermr
+    - erykoff
+    - isuruf

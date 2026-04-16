@@ -1,0 +1,27 @@
+{
+  "name": "numpy",
+  "version": "2.4.4",
+  "build": "py311h4bb6f22_1",
+  "build_number": 1,
+  "channel": "https://repo.anaconda.com/pkgs/main/osx-arm64",
+  "subdir": "osx-arm64",
+  "fn": "numpy-2.4.4-py311h4bb6f22_1.conda",
+  "md5": "9b4be3ef1ce0841aa456b25c5d7f8ea5",
+  "url": "https://repo.anaconda.com/pkgs/main/osx-arm64/numpy-2.4.4-py311h4bb6f22_1.conda",
+  "sha256": "f911f1c81eb5d30815d983a4c518610039f37529e176c7e560c649e57bba6740",
+  "arch": "arm64",
+  "platform": "darwin",
+  "depends": [
+    "__osx >=12.1",
+    "blas * openblas",
+    "libcxx >=17",
+    "libopenblas >=0.3.31,<1.0a0",
+    "numpy-base 2.4.4 py311h23175f9_1",
+    "python >=3.11,<3.12.0a0"
+  ],
+  "constrains": [],
+  "license": "BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0",
+  "license_family": "OTHER",
+  "timestamp": 1776188916000,
+  "size": 20087
+}
