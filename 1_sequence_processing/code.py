@@ -15,18 +15,20 @@ def base_count(fastafile: str) -> List[int]:
             for base in line:
                 if base in counts:
                     counts[base] +=1
-    return [counts['A'], counts['C'], counts['G'], counts['T']] # A, T, G, C
+    return [counts['A'], counts['T'], counts['G'], counts['C']] # A, T, G, C
 
 def gen_rev_comp_seq(fastafile: str) -> str:
     # 課題 1-2
     comp = {'A':'T','T':'A','G':'C','C':'G'}
-    seq = ""
+    seq_list = []
 
     with open(fastafile, 'r') as f:
         for line in f:
             if line.startswith('>'):
                 continue
-            seq += line.strip().upper()
+            seq_list.append(line.strip().upper())
+
+    seq = "".join(seq_list)
 
     reverse = ""
     for base in reversed(seq):
@@ -36,32 +38,34 @@ def gen_rev_comp_seq(fastafile: str) -> str:
             reverse += base
     return reverse
 
-def calc_gc_content(fastafile: str, window: int=1000, step: int=300) -> Union[npt.NDArray[np.float_], List[float]]:
+def calc_gc_content(fastafile: str, window: int=1000, step: int=300) -> Union[npt.NDArray[np.float64], List[float]]:
     # 課題 1-3
     # 値を出力するところまで。matplotlibを使う部分は別途実装してください。
-    seq = ""
+    seq_list = []
+
     with open(fastafile, 'r') as f:
         for line in f:
-            if line.startswith('>'):
-                continue
-            seq += line.strip().upper()
-    
+            if not line.startswith('>'):
+                seq_list.append(line.strip().upper())
+
+    seq = "".join(seq_list)
     results = []
     for i in range(0, len(seq) - window + 1, step):
-        sub_seq = seq[i, i+window]
+        sub_seq = seq[i: i+window]
         counts = sub_seq.count('G') + sub_seq.count('C')
         results.append((counts/window)*100)
     return results
 
 def search_motif(fastafile: str, motif: str) -> List[str]:
     # 課題 1-4
-    seq = ""
+    seq_list = []
 
     with open(fastafile, 'r') as f:
         for line in f:
-            if line.startswith('>'):
-                continue
-            seq += line.strip().upper()
+            if not line.startswith('>'):
+                seq_list.append(line.strip().upper())
+
+    seq = "".join(seq_list)
 
     results: List[str] = [] 
     for i in range(0, len(seq)-len(motif) + 1):
@@ -76,7 +80,7 @@ def search_motif(fastafile: str, motif: str) -> List[str]:
 
 def translate(fastafile: str) -> List[str]:
     # 課題 1-5
-    
+
     return []
 
 if __name__ == "__main__":
