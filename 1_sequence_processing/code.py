@@ -66,16 +66,18 @@ def search_motif(fastafile: str, motif: str) -> List[str]:
                 seq_list.append(line.strip().upper())
 
     seq = "".join(seq_list)
+    revseq = gen_rev_comp_seq(fastafile)
 
     results: List[str] = [] 
+
     for i in range(0, len(seq) - len(motif) + 1):
         if seq[i :i + len(motif)] == motif:
-            results.append(('F', i))
-
-    revseq = gen_rev_comp_seq(fastafile)
+            results.append(f"F{i + 1}")
+    
     for i in range(0, len(revseq) - len(motif) + 1):
-        if revseq[i:i + len(motif)] == motif:
-            results.append(('R', len(revseq)- i + 1))
+        if revseq[i :i + len(motif)] == motif:
+            results.append(f"R{len(revseq) - i}")
+
     return results
 
 def translate(fastafile: str) -> List[str]:
